@@ -234,8 +234,9 @@ def main():
     # Create the sidebar for conversion type selection with a nice header
     st.sidebar.markdown("## 🛠️ Select Conversion Type")
     conversion_type = st.sidebar.selectbox(
-        "",  # Empty label since we have the header above
-        list(conversion_types.keys())
+        label="Conversion Type Selection",
+        options=list(conversion_types.keys()),
+        label_visibility="collapsed"
     )
     
     # Add conversion formulas in the sidebar
@@ -333,16 +334,29 @@ def main():
     
     with col1:
         st.markdown("### Enter Value")
-        value = st.number_input("", value=0.0)
-        # # value = st.number_input("", key="input2", label_visibility="collapsed")
-        # value = st.slider("", min_value=0, max_value=200, value=0, key="input2")
+        value = st.number_input(
+            label="Value Input",
+            value=0.0,
+            label_visibility="collapsed"
+        )
+        
     with col2:
         st.markdown("### From Unit")
-        from_unit = st.selectbox("", units, key="from_unit")
+        from_unit = st.selectbox(
+            label="From Unit Selection",
+            options=units,
+            key="from_unit",
+            label_visibility="collapsed"
+        )
         
     with col3:
         st.markdown("### To Unit")
-        to_unit = st.selectbox("", units, key="to_unit")
+        to_unit = st.selectbox(
+            label="To Unit Selection",
+            options=units,
+            key="to_unit",
+            label_visibility="collapsed"
+        )
     
     # Add some space before the convert button
     st.markdown("")
@@ -375,7 +389,11 @@ def main():
     st.markdown("")
     # Ask a Question section
     st.write("Answer with LLM:")
-    user_question = st.text_input("Enter your question:")
+    user_question = st.text_input(
+        label="Question Input",
+        placeholder="Enter your question",
+        label_visibility="collapsed"
+    )
 
     if st.button("Get Answer"):
         if user_question.strip():
