@@ -2,7 +2,7 @@
 name = "unit-convertor"
 version = "0.1.0"
 authors = [
-    { name = "Samreen Saif", email = "your.email@example.com" },
+    { name = "Samreen Saif", email = "samreensaif81@gmail.com" },
 ]
 description = "A universal unit converter application"
 readme = "README.md"
